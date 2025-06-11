@@ -1,0 +1,103 @@
+body{
+	background-color: black;
+	
+}
+form{
+	width: 90%;
+    max-width: 400px; 
+    margin: 90px auto; 
+    padding: 10px;
+    background-color: #2b3038;
+    border-radius: 10px;
+    position: relative;
+
+}
+@property --angle{
+	syntax: "<angle>";
+	initial-value: 0deg;
+	inherits: false;
+}
+form::after,form::before{
+	content: '';
+	--angle:0deg;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
+	z-index:-1;
+	padding: 5px;
+	background-image:conic-gradient(from var(--angle),transparent 80%,blue,yellow,red) ;
+	border-radius: 10px;
+	animation: 2.5s spin linear infinite;
+
+}
+
+#display{
+	width: 95%;
+	height: 2rem;
+	margin: 5px 5px;
+	color: white;
+	font-size: 20px;
+	background-color:#527882;
+	border-radius: 20px;
+	padding: 3px;
+	border-inline: block;
+}
+button{
+	width: 23%;
+	height: 2rem;
+	margin-bottom: 15px;
+	margin-left: 0.80%;
+	border-radius: 20px;
+	color: black;
+	background-color: silver;
+	box-shadow: 4px 5px 2px black;
+}
+#logo{
+	margin: 0 auto;
+	margin-top: 2rem;
+	padding: 1.5rem;
+	width: 300px;
+	background:#252426 ;
+	color: white;
+	text-align: center;
+	font-size: 50px;
+	border-radius: 10px;
+	position: relative;
+
+	
+}
+#logo::after, #logo::before{
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background: red;
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
+	z-index:-1;
+	padding: 4px;
+	background-image:conic-gradient(red,blue,yellow,grey,gold) ;
+	border-radius: 10px;	
+}
+#logo::before{
+	filter: blur(1.5rem);
+	opacity: 5;
+}
+button:hover{
+		background-color: grey;
+		color: white;
+	
+}
+@keyframes spin{
+	form{
+		--angle:0deg;
+	}
+	to{
+		--angle:360deg;
+	}
+}
